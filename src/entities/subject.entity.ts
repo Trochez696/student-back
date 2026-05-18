@@ -13,6 +13,9 @@ export class Subject {
   @Column({ unique: true })
   codigo: string;
 
+  @Column({ nullable: true })
+  descripcion?: string;
+
   @ManyToOne(() => User, (user) => user.assignedSubjects, { nullable: true, eager: true })
   docente: User;
 
