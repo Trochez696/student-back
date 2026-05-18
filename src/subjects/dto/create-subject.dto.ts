@@ -12,4 +12,9 @@ export class CreateSubjectDto {
   @IsString()
   @IsOptional()
   descripcion?: string;
+
+  // Alias tolerado para evitar 400 por typo en clientes existentes
+  @IsString()
+  @IsOptional()
+  descipcion?: string;
 }

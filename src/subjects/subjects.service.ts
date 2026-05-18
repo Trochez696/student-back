@@ -17,7 +17,11 @@ export class SubjectsService {
   ) {}
 
   async create(createSubjectDto: CreateSubjectDto): Promise<Subject> {
-    const subject = this.subjectRepository.create(createSubjectDto);
+    const subject = this.subjectRepository.create({
+      nombre: createSubjectDto.nombre,
+      codigo: createSubjectDto.codigo,
+      descripcion: createSubjectDto.descripcion ?? createSubjectDto.descipcion,
+    });
     return this.subjectRepository.save(subject);
   }
 
